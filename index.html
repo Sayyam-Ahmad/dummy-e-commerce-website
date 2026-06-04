@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thread & Co. — Modern Clothing Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">Thread<span>&</span>Co.</a>
+
+      <nav class="nav" id="mainNav">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#mens" class="nav-link">Men</a>
+        <a href="#womens" class="nav-link">Women</a>
+        <a href="#about" class="nav-link">About</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn search-toggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        </button>
+        <button class="icon-btn cart-btn" id="cartBtn" aria-label="Open cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="search-bar" id="searchBar">
+      <div class="container">
+        <input type="search" id="searchInput" placeholder="Search clothing, brands, styles…" autocomplete="off">
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+      <p class="hero-tag">New Season Collection 2026</p>
+      <h1>Style That Moves<br>With You</h1>
+      <p class="hero-desc">Discover curated men's and women's clothing — timeless pieces crafted for everyday comfort and effortless elegance.</p>
+      <div class="hero-actions">
+        <a href="#shop" class="btn btn-primary">Shop Now</a>
+        <a href="#womens" class="btn btn-outline">Women's Edit</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>200+</strong><span>Styles</span></div>
+        <div><strong>Free</strong><span>Shipping $75+</span></div>
+        <div><strong>30-Day</strong><span>Returns</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories">
+    <div class="container">
+      <div class="category-grid">
+        <a href="#mens" class="category-card category-mens">
+          <div class="category-overlay"></div>
+          <div class="category-text">
+            <span>Collection</span>
+            <h2>Men's Wear</h2>
+            <p>Shirts, jackets & more →</p>
+          </div>
+        </a>
+        <a href="#womens" class="category-card category-womens">
+          <div class="category-overlay"></div>
+          <div class="category-text">
+            <span>Collection</span>
+            <h2>Women's Wear</h2>
+            <p>Dresses, tops & more →</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop / Products -->
+  <section class="shop" id="shop">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-tag">Our Collection</p>
+          <h2>Featured Products</h2>
+        </div>
+        <div class="filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="mens">Men</button>
+          <button class="filter-btn" data-filter="womens">Women</button>
+          <select id="sortSelect" class="sort-select">
+            <option value="default">Sort by</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="name">Name A–Z</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- Men's Section -->
+  <section class="collection-section" id="mens">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-tag">For Him</p>
+          <h2>Men's Clothing</h2>
+        </div>
+      </div>
+      <div class="products-grid mens-grid" id="mensGrid"></div>
+    </div>
+  </section>
+
+  <!-- Women's Section -->
+  <section class="collection-section alt-bg" id="womens">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <p class="section-tag">For Her</p>
+          <h2>Women's Clothing</h2>
+        </div>
+      </div>
+      <div class="products-grid womens-grid" id="womensGrid"></div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="container features-grid">
+      <div class="feature">
+        <div class="feature-icon">🚚</div>
+        <h3>Free Shipping</h3>
+        <p>On orders over $75. Fast delivery to your door.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">↩️</div>
+        <h3>Easy Returns</h3>
+        <p>30-day hassle-free returns on all items.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">✨</div>
+        <h3>Premium Quality</h3>
+        <p>Carefully selected fabrics and timeless designs.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure Checkout</h3>
+        <p>Your payment info is always protected.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container about-inner">
+      <div class="about-image"></div>
+      <div class="about-text">
+        <p class="section-tag">Our Story</p>
+        <h2>Clothing Made for Real Life</h2>
+        <p>Thread & Co. was founded on a simple belief: everyone deserves well-made clothes that feel as good as they look. From crisp Oxford shirts to flowing maxi dresses, we curate pieces that transition seamlessly from weekday to weekend.</p>
+        <p>We partner with ethical manufacturers and focus on sustainable materials — because great style shouldn't cost the earth.</p>
+        <a href="#shop" class="btn btn-primary">Explore Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container newsletter-inner">
+      <h2>Get 15% Off Your First Order</h2>
+      <p>Subscribe for style tips, new arrivals, and exclusive offers.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Enter your email" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">Thread<span>&</span>Co.</a>
+        <p>Modern clothing for men and women. Quality you can feel, style you can trust.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Shop</h4>
+        <a href="#mens">Men's</a>
+        <a href="#womens">Women's</a>
+        <a href="#shop">All Products</a>
+      </div>
+      <div class="footer-links">
+        <h4>Help</h4>
+        <a href="#">Shipping</a>
+        <a href="#">Returns</a>
+        <a href="#">Size Guide</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4>Follow Us</h4>
+        <a href="#">Instagram</a>
+        <a href="#">Pinterest</a>
+        <a href="#">Twitter</a>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Thread & Co. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="icon-btn close-cart" id="closeCart" aria-label="Close cart">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Your cart is empty</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotal">$0.00</strong>
+      </div>
+      <button class="btn btn-primary btn-full" id="checkoutBtn">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="products.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
